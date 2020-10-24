@@ -2,9 +2,7 @@ const { response } = require("express");
 const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
-require("dotenv").config();
 
-const PORT = process.env.PORT ?? 3000;
 const WEATHER_URL = process.env.WEATHER_URL;
 const API_KEY = process.env.WEATHER_KEY;
 
@@ -34,10 +32,6 @@ app.get("/weather", async (req, res) => {
   } catch (error) {
     return res.status(500).json(error);
   }
-});
-
-app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`);
 });
 
 module.exports = app;
